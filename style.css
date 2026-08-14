@@ -1,0 +1,980 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --orange: #ff6b00;
+    --orange-light: #ff8a32;
+    --black: #080808;
+    --dark: #111111;
+    --card: #171717;
+    --gray: #999;
+    --white: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--black);
+    color: var(--white);
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(8, 8, 8, .94);
+    border-bottom: 1px solid #292929;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: white;
+}
+
+.logo strong {
+    color: var(--orange);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.navbar nav a:hover {
+    color: var(--orange);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 7%;
+
+    background:
+        radial-gradient(circle at 75% 40%, rgba(255,107,0,.18), transparent 30%),
+        linear-gradient(90deg, rgba(5,5,5,.94) 0%, rgba(5,5,5,.82) 40%, rgba(5,5,5,.45) 75%, rgba(5,5,5,.25) 100%),
+        url('bus.jpg') center 60% / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 9px 16px;
+
+    border-radius: 30px;
+
+    color: var(--orange);
+    background: rgba(255,107,0,.1);
+    border: 1px solid rgba(255,107,0,.3);
+
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: .98;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: var(--orange);
+}
+
+.hero p {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+.hero-btn {
+    display: inline-block;
+
+    padding: 16px 25px;
+
+    border-radius: 8px;
+
+    background: var(--orange);
+    color: white;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: .3s;
+}
+
+.hero-btn:hover {
+    background: var(--orange-light);
+    transform: translateY(-3px);
+}
+
+
+/* ================= TITRES ================= */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title > span {
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin: 10px 0;
+}
+
+.section-title p {
+    color: var(--gray);
+}
+
+
+/* ================= RESERVATION ================= */
+
+.reservation-section {
+    padding: 100px 6%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255,107,0,.08), transparent 25%),
+        #0b0b0b;
+}
+
+.reservation-card {
+    max-width: 900px;
+    margin: auto;
+
+    padding: 35px;
+
+    background: linear-gradient(145deg, #1a1a1a, #101010);
+
+    border: 1px solid #292929;
+    border-radius: 20px;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,.5);
+}
+
+.input-group {
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    color: #ddd;
+    margin-bottom: 9px;
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 15px;
+
+    background: #0c0c0c;
+
+    border: 1px solid #333;
+    border-radius: 8px;
+
+    color: white;
+    outline: none;
+
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--orange);
+}
+
+.form-row {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.swap {
+    color: var(--orange);
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+
+/* ================= JOUR / NUIT ================= */
+
+.travel-types {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.travel-type {
+    padding: 18px;
+
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+    background: #0c0c0c;
+    border: 1px solid #333;
+
+    border-radius: 12px;
+
+    color: white;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.travel-type span {
+    font-size: 27px;
+}
+
+.travel-type strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.travel-type small {
+    color: #888;
+}
+
+.travel-type:hover,
+.travel-type.active {
+    border-color: var(--orange);
+    background: rgba(255,107,0,.08);
+}
+
+
+/* ================= PAIEMENT ================= */
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.payment-method {
+    padding: 18px 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    background: #0c0c0c;
+    border: 1px solid #333;
+
+    border-radius: 12px;
+
+    color: white;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.payment-method span {
+    font-size: 24px;
+}
+
+.payment-method strong {
+    font-size: 13px;
+}
+
+.payment-method:hover,
+.payment-method.active {
+    border-color: var(--orange);
+    background: rgba(255,107,0,.08);
+}
+
+#operateurChoisi {
+    color: var(--orange);
+    font-weight: normal;
+}
+
+
+/* ================= SIEGES ================= */
+
+.seat-section {
+    margin-top: 35px;
+}
+
+.seat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.seat-header label {
+    font-weight: bold;
+}
+
+.seat-header p {
+    color: #777;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.seat-counter {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.seat-counter span {
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.seat-map {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 10px;
+
+    padding: 20px;
+
+    background: #0a0a0a;
+
+    border-radius: 15px;
+    border: 1px solid #242424;
+}
+
+.seat {
+    height: 43px;
+
+    border-radius: 7px;
+
+    border: 1px solid #444;
+
+    background: #181818;
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: .2s;
+}
+
+.seat:hover:not(.occupied) {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+}
+
+.seat.selected {
+    background: var(--orange);
+    border-color: var(--orange);
+}
+
+.seat.occupied {
+    background: #343434;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.seat-legend {
+    display: flex;
+    gap: 20px;
+
+    margin-top: 15px;
+
+    font-size: 11px;
+    color: #888;
+}
+
+.seat-legend div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend {
+    width: 11px;
+    height: 11px;
+    border-radius: 3px;
+    background: #181818;
+    border: 1px solid #444;
+}
+
+.legend.selected {
+    background: var(--orange);
+    border-color: var(--orange);
+}
+
+.legend.occupied {
+    background: #343434;
+    border: none;
+}
+
+
+/* ================= PRIX ================= */
+
+.price-card {
+    margin-top: 30px;
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255,107,0,.07);
+
+    border: 1px solid rgba(255,107,0,.25);
+    border-radius: 12px;
+}
+
+.price-card span {
+    display: block;
+    color: #888;
+    font-size: 12px;
+}
+
+.price-card strong {
+    display: block;
+    color: var(--orange);
+    font-size: 28px;
+    margin-top: 5px;
+}
+
+.summary-route {
+    text-align: right;
+}
+
+.summary-route span {
+    color: white;
+    font-size: 14px;
+}
+
+.summary-route small {
+    color: var(--orange);
+}
+
+
+/* ================= BOUTON ================= */
+
+.reserve-btn {
+    width: 100%;
+
+    margin-top: 20px;
+    padding: 17px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: var(--orange);
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.reserve-btn:hover {
+    background: var(--orange-light);
+    transform: translateY(-2px);
+}
+
+.reserve-btn:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ================= HORAIRES ================= */
+
+.horaires-section {
+    padding: 100px 7%;
+    background: #0b0b0b;
+}
+
+.horaires-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.horaire-card {
+    padding: 25px;
+
+    background: linear-gradient(145deg, #181818, #0e0e0e);
+
+    border: 1px solid #292929;
+    border-radius: 15px;
+
+    transition: .3s;
+}
+
+.horaire-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--orange);
+}
+
+.horaire-card .route {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.horaire-card .arrow {
+    color: var(--orange);
+    padding: 0 5px;
+}
+
+.horaire-card .departs {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.horaire-card .depart-heure {
+    display: inline-block;
+
+    padding: 8px 16px;
+
+    background: rgba(255,107,0,.1);
+    border: 1px solid rgba(255,107,0,.3);
+    border-radius: 30px;
+
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* ================= TARIFS ================= */
+
+.tarifs-section {
+    padding: 100px 7%;
+}
+
+.tarifs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.tarif-card {
+    padding: 25px;
+
+    background: linear-gradient(145deg, #181818, #0e0e0e);
+
+    border: 1px solid #292929;
+    border-radius: 15px;
+
+    transition: .3s;
+}
+
+.tarif-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--orange);
+}
+
+.tarif-card .route {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tarif-card .arrow {
+    color: var(--orange);
+    padding: 0 5px;
+}
+
+.tarif-card .price {
+    margin-top: 20px;
+    color: var(--orange);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* ================= INFOS ================= */
+
+.info-section {
+    padding: 70px 7% 100px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.info-card {
+    padding: 30px;
+
+    background: #141414;
+    border: 1px solid #292929;
+    border-radius: 15px;
+}
+
+.info-card span {
+    font-size: 30px;
+}
+
+.info-card h3 {
+    margin: 15px 0 10px;
+}
+
+.info-card p {
+    color: #888;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* ================= TICKET ================= */
+
+.ticket-modal {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.85);
+
+    z-index: 3000;
+
+    backdrop-filter: blur(10px);
+}
+
+.ticket-modal.show {
+    display: flex;
+}
+
+.ticket {
+    width: 100%;
+    max-width: 470px;
+
+    background: #111;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    box-shadow: 0 30px 100px rgba(0,0,0,.8);
+}
+
+.close-ticket {
+    position: absolute;
+    right: 18px;
+    top: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.1);
+
+    color: white;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+.ticket-header {
+    padding: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #080808;
+}
+
+.ticket-logo {
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.ticket-logo strong {
+    color: var(--orange);
+}
+
+.ticket-label {
+    font-size: 10px;
+    color: #aaa;
+    letter-spacing: 1px;
+}
+
+.ticket-orange-line {
+    height: 5px;
+    background: var(--orange);
+}
+
+.ticket-main {
+    padding: 25px;
+}
+
+.ticket-welcome {
+    color: #777;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.ticket-route {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px dashed #333;
+}
+
+.ticket-route span {
+    color: var(--orange);
+    font-size: 22px;
+}
+
+.ticket-route small,
+.ticket-info-grid small {
+    display: block;
+    color: #666;
+    font-size: 9px;
+    margin-bottom: 6px;
+}
+
+.ticket-route strong {
+    font-size: 18px;
+}
+
+.ticket-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+
+    padding: 25px 0;
+}
+
+.ticket-info-grid strong {
+    font-size: 13px;
+}
+
+.ticket-info-grid .big-seat {
+    color: var(--orange);
+    font-size: 25px;
+}
+
+.ticket-reservation-date {
+    padding: 15px;
+
+    background: #181818;
+
+    border-radius: 8px;
+
+    color: #777;
+    font-size: 10px;
+}
+
+.ticket-reservation-date strong {
+    color: white;
+}
+
+.ticket-footer {
+    padding: 18px 25px;
+
+    background: var(--orange);
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-footer span {
+    font-weight: 900;
+}
+
+.ticket-footer small {
+    font-size: 10px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 35px 7%;
+
+    border-top: 1px solid #222;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer p {
+    color: #666;
+    font-size: 12px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 700px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        min-height: 570px;
+        padding: 70px 6%;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .reservation-section,
+    .tarifs-section {
+        padding: 70px 5%;
+    }
+
+    .reservation-card {
+        padding: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+    }
+
+    .swap {
+        display: none;
+    }
+
+    .travel-types {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .seat-map {
+        grid-template-columns: repeat(5, 1fr);
+        padding: 12px;
+        gap: 6px;
+    }
+
+    .seat {
+        height: 38px;
+        font-size: 11px;
+    }
+
+    .price-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .summary-route {
+        text-align: left;
+    }
+
+    .tarifs-grid,
+    .info-section,
+    .horaires-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ticket {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
